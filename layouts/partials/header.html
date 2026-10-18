@@ -1,0 +1,14 @@
+{{ $page := . }}
+<header class="site">
+  <div class="bar">
+    <a class="logo" href="{{ "" | relURL }}"><span>&gt;_</span> {{ site.Title }}</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav id="site-nav" aria-label="Principal">
+      <ul>
+        {{ range site.Menus.main }}
+        <li><a href="{{ .URL }}"{{ if $page.IsMenuCurrent "main" . }} aria-current="page"{{ end }}{{ if not .Page }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>

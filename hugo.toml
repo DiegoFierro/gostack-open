@@ -1,0 +1,23 @@
+baseURL = "https://tu-usuario.github.io/gostack-open/"
+languageCode = "es"
+defaultContentLanguage = "es"
+title = "GoStack Open"
+
+[params]
+  description = "Curso práctico para construir aplicaciones Full Stack (Web, Escritorio y Móvil) con Go como tecnología central."
+  author = "Diego Esteban Fierro"
+  authorURL = "#"
+  repoURL = "https://diegofierro.github.io/"
+
+[[menus.main]]
+  name = "Inicio"
+  pageRef = "/"
+  weight = 10
+[[menus.main]]
+  name = "Syllabus"
+  pageRef = "/syllabus"
+  weight = 20
+[[menus.main]]
+  name = "Código fuente ↗"
+  url = "https://github.com/"
+  weight = 30
