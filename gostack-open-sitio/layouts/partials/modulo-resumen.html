@@ -1,0 +1,14 @@
+{{- /* contexto: dict "mod" <módulo> */ -}}
+{{- $mod := .mod }}
+{{- $p := site.GetPage (printf "lecciones/%s" $mod.leccion) }}
+<details class="modulo">
+  <summary><span class="modulo__id">Módulo {{ $mod.id }}</span> <span class="modulo__titulo">{{ $mod.titulo | markdownify }}</span></summary>
+  <ul>
+    {{- range $mod.temas }}
+    <li>{{ . | markdownify }}</li>
+    {{- end }}
+  </ul>
+  {{- with $p }}
+  <p class="modulo__enlace"><a class="boton boton--sec" href="{{ .RelPermalink }}">Ir a la lección →</a></p>
+  {{- end }}
+</details>

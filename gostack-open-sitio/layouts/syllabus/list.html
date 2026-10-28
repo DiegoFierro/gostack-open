@@ -1,0 +1,24 @@
+{{ define "bodyclass" }}syllabus{{ end }}
+{{ define "main" }}
+{{- $total := 0 }}{{ range site.Data.syllabus.fases }}{{ $total = add $total (len .modulos) }}{{ end }}
+<div class="contenedor pagina">
+  <h1>{{ .Title }}</h1>
+  <h2 class="subtitulo">Programa de Estudios Oficial</h2>
+  <div class="prosa">{{ .Content }}</div>
+  <p>El curso está estructurado en <strong>{{ $total }} módulos progresivos</strong> distribuidos en {{ len site.Data.syllabus.fases }} fases.</p>
+
+  <div class="acciones-syllabus" role="group" aria-label="Controles del syllabus">
+    <button type="button" class="boton boton--sec" data-expandir="todo">Expandir todo</button>
+    <button type="button" class="boton boton--sec" data-expandir="nada">Contraer todo</button>
+  </div>
+
+  {{- range site.Data.syllabus.fases }}
+  <section class="fase-bloque">
+    <h2 class="fase-bloque__titulo">{{ .nombre }}</h2>
+    {{- range .modulos }}
+      {{ partial "modulo-resumen.html" (dict "mod" .) }}
+    {{- end }}
+  </section>
+  {{- end }}
+</div>
+{{ end }}

@@ -1,19 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ site.Language.LanguageCode }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}Inicio{{ else }}{{ .Title }}{{ end }} — {{ site.Title }}</title>
-  <meta name="description" content="{{ site.Params.description }}">
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+{{ partial "head.html" . }}
 </head>
-<body>
-  <a class="skip" href="#main-content">Saltar al contenido</a>
+<body class="{{ block "bodyclass" . }}{{ end }}">
+  <a class="saltar" href="#main-content">Saltar al contenido</a>
   {{ partial "header.html" . }}
-  <main id="main-content" class="content">
+  <main id="main-content" tabindex="-1">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
-  <script src="{{ "js/main.js" | relURL }}"></script>
+  {{ $js := resources.Get "js/main.js" | resources.Fingerprint }}
+  <script src="{{ $js.RelPermalink }}" defer></script>
 </body>
 </html>

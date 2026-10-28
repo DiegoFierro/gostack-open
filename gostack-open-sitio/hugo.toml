@@ -1,0 +1,41 @@
+baseURL = "https://diegofierro.github.io/gostack-open/"
+languageCode = "es"
+defaultContentLanguage = "es"
+title = "GoStack Open"
+enableRobotsTXT = true
+enableGitInfo = false
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  descripcion = "Curso práctico para construir aplicaciones Full Stack (Web, Escritorio y Móvil) con Go como tecnología central."
+  autor = "Diego Esteban Fierro"
+  autorURL = "https://diegofierro.github.io/"
+  repositorio = "https://github.com/DiegoFierro/gostack-open"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true            # necesario para <details> en las lecciones
+  [markup.highlight]
+    noClasses = false        # estilos en CSS (claro/oscuro)
+    lineNos = false
+    guessSyntax = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 2
+
+[menus]
+  [[menus.main]]
+    name = "Inicio"
+    pageRef = "/"
+    weight = 10
+  [[menus.main]]
+    name = "Syllabus"
+    pageRef = "/syllabus"
+    weight = 20
+  [[menus.main]]
+    name = "Lecciones"
+    pageRef = "/lecciones"
+    weight = 30
+
+[minify]
+  minifyOutput = false

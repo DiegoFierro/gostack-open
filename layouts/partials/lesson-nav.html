@@ -1,0 +1,22 @@
+{{- $cur := . -}}
+{{- $pages := $cur.CurrentSection.RegularPages.ByWeight -}}
+{{- $prev := false -}}
+{{- $next := false -}}
+{{- range $i, $p := $pages -}}
+  {{- if eq $p.RelPermalink $cur.RelPermalink -}}
+    {{- if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end -}}
+    {{- if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end -}}
+  {{- end -}}
+{{- end -}}
+<nav class="leccion-nav" aria-label="Navegación entre lecciones">
+  {{ with $prev }}
+    <a class="leccion-nav__prev" rel="prev" href="{{ .RelPermalink }}"><small>← Lección anterior</small><span>{{ .Title }}</span></a>
+  {{ else }}
+    <a class="leccion-nav__prev" href="{{ "lecciones/" | relURL }}"><small>← Inicio del curso</small><span>Índice de lecciones</span></a>
+  {{ end }}
+  {{ with $next }}
+    <a class="leccion-nav__next" rel="next" href="{{ .RelPermalink }}"><small>Lección siguiente →</small><span>{{ .Title }}</span></a>
+  {{ else }}
+    <a class="leccion-nav__next" href="{{ "syllabus/" | relURL }}"><small>¡Curso completado! →</small><span>Volver al Syllabus</span></a>
+  {{ end }}
+</nav>

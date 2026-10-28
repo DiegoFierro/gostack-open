@@ -1,0 +1,57 @@
+{{ define "bodyclass" }}inicio{{ end }}
+{{ define "main" }}
+{{- $primera := site.GetPage "lecciones/01-modulo-menos-01" }}
+{{- $total := 0 }}{{ range site.Data.syllabus.fases }}{{ $total = add $total (len .modulos) }}{{ end }}
+<section class="hero">
+  <div class="contenedor">
+    <p class="hero__etiqueta">Curso gratuito y de código abierto</p>
+    <h1>Aprende <span class="acento">Full Stack con Go</span></h1>
+    <p class="hero__texto">{{ site.Params.descripcion }} Desde la terminal y HTTP hasta el despliegue en producción, construyendo un único proyecto que crece módulo a módulo.</p>
+    <p class="hero__acciones">
+      {{ with $primera }}<a class="boton" href="{{ .RelPermalink }}">Empezar el curso →</a>{{ end }}
+      <a class="boton boton--sec" href="{{ "syllabus/" | relURL }}">Ver el syllabus</a>
+    </p>
+    <ul class="cifras" aria-label="Resumen del curso">
+      <li><strong>{{ $total }}</strong> módulos</li>
+      <li><strong>{{ len site.Data.syllabus.fases }}</strong> fases</li>
+      <li><strong>3</strong> plataformas: web, escritorio y móvil</li>
+    </ul>
+  </div>
+</section>
+
+<section class="contenedor seccion">
+  <h2>Lo que vas a construir</h2>
+  <div class="tarjetas">
+    <article class="tarjeta"><h3>🌐 Aplicación web</h3><p>Servidor en Go con HTMX, PostgreSQL, autenticación, tiempo real y colas de tareas.</p></article>
+    <article class="tarjeta"><h3>🔌 API documentada</h3><p>Contrato OpenAPI, código generado, Swagger UI embebido en un único binario.</p></article>
+    <article class="tarjeta"><h3>🖥️ Escritorio y móvil</h3><p>Apps con Wails y Fyne que reutilizan la misma lógica de negocio, incluso un <code>.apk</code>.</p></article>
+    <article class="tarjeta"><h3>🚀 En producción</h3><p>Docker, Compose y Caddy con HTTPS automático, con métricas, logs y pruebas.</p></article>
+  </div>
+</section>
+
+<section class="contenedor seccion">
+  <h2>Ruta de aprendizaje</h2>
+  <ol class="fases">
+    {{- range $i, $f := site.Data.syllabus.fases }}
+    {{- $primero := index .modulos 0 }}
+    {{- $p := site.GetPage (printf "lecciones/%s" $primero.leccion) }}
+    <li class="fase">
+      <h3>{{ .nombre }}</h3>
+      <p>{{ .resumen }}</p>
+      <p class="fase__meta">{{ len .modulos }} módulos · empieza en
+        {{ with $p }}<a href="{{ .RelPermalink }}">Módulo {{ $primero.id }}</a>{{ end }}</p>
+    </li>
+    {{- end }}
+  </ol>
+</section>
+
+<section class="contenedor seccion">
+  <h2>Principios del curso</h2>
+  <ul class="principios">
+    <li><strong>Un dominio, muchos adaptadores.</strong> La lógica de negocio no sabe si le habla un navegador, una API o una app móvil.</li>
+    <li><strong>Lo explícito sobre lo mágico.</strong> Errores como valores, dependencias a la vista, herramientas simples.</li>
+    <li><strong>Hipermedia primero.</strong> HTML desde el servidor y HTMX antes que un framework de JavaScript.</li>
+    <li><strong>Medir, probar, observar.</strong> Benchmarks, pruebas, logs, métricas y trazas forman parte del camino, no un añadido.</li>
+  </ul>
+</section>
+{{ end }}
