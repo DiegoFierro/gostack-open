@@ -5,11 +5,7 @@ weight: 2
 fase: "Fase -1 & 0: Fundamentos, terminal y mentalidad Go"
 ---
 
-> Entiende qué ocurre entre que escribes una URL y ves una página.
-
-**Fase -1 & 0: Fundamentos, terminal y mentalidad Go** · Lección 2 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Describir el modelo cliente-servidor, las IPs y el DNS.
 - Leer y escribir peticiones y respuestas HTTP a mano.
@@ -139,7 +135,7 @@ Hoy muchas aplicaciones invierten el modelo: el servidor devuelve JSON y un fram
 
 Resultado: menos código, una sola fuente de verdad (el servidor) y un stack mucho más pequeño.
 
-## 🧪 Práctica
+## Práctica
 
 Usa `curl -v https://example.com` y anota: método, ruta, cabeceras de petición, código de estado y cabeceras de respuesta. Repite con una URL inexistente y compara el código de estado.
 
@@ -161,20 +157,20 @@ Con `curl -v https://example.com` verás líneas con `>` (petición) y `<` (resp
 Con `https://example.com/no-existe` el estado será `404`. Observa que **la respuesta sigue teniendo cuerpo HTML**: un error también es una respuesta válida. Bonus: haz `curl -X POST https://example.com -i` y observa el código (normalmente `405 Method Not Allowed` o similar).
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Creer que `POST` es "más seguro" que `GET`: ninguno cifra nada; eso lo hace HTTPS.
 - Poner datos sensibles en la URL (quedan en historiales y logs).
 - Usar `200 OK` para todo, incluso errores: pierdes información valiosa.
 
-## 📌 Resumen
+## Resumen
 
 - DNS convierte nombres en IPs; el puerto identifica el programa.
 - HTTP es texto: línea inicial, cabeceras, cuerpo.
 - Método + ruta expresan la intención; el código de estado expresa el resultado.
 - La web es hipermedia: el HTML contiene las acciones. Este curso se construye sobre esa idea.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Qué tarea cumple el DNS?
 2. ¿Por qué nunca se borra un recurso con `GET`?

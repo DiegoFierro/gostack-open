@@ -5,11 +5,7 @@ weight: 15
 fase: "Fase 4: Rendimiento, observabilidad, escritorio y producción"
 ---
 
-> Mide primero, optimiza después: caché, compresión y consultas eficientes.
-
-**Fase 4: Rendimiento, observabilidad, escritorio y producción** · Lección 15 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Medir antes de optimizar (profiling y benchmarks).
 - Implementar caché en memoria y con Redis, con invalidación razonable.
@@ -380,7 +376,7 @@ func render(w http.ResponseWriter, t *template.Template, datos any) error {
 - Serializar JSON enorme sin paginar.
 - Trabajo pesado síncrono dentro del handler (usa colas, Módulo 11).
 
-## 🧪 Práctica
+## Práctica
 
 Perfila un listado con `pprof`, elimina un N+1 con un `JOIN`, añade caché con TTL en Redis y compara tiempos antes y después.
 
@@ -398,7 +394,7 @@ Perfila un listado con `pprof`, elimina un N+1 con un `JOIN`, añade caché con 
 Resultado esperado: de cientos de consultas por petición a una o dos, y una caída de latencia de uno o dos órdenes de magnitud en el listado.
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Optimizar sin perfilar.
 - Cachear sin plan de invalidación (datos obsoletos para siempre).
@@ -407,7 +403,7 @@ Resultado esperado: de cientos de consultas por petición a una o dos, y una ca�
 - Comparar solo medias y no percentiles.
 - Micro-optimizar código mientras la consulta SQL sin índice tarda 2 segundos.
 
-## 📌 Resumen
+## Resumen
 
 - **Mide** (carga + `pprof` + benchmarks) antes y después de cada cambio.
 - Caché: cache-aside + TTL + invalidación; en memoria para una instancia, Redis para varias; `singleflight` contra estampidas.
@@ -415,7 +411,7 @@ Resultado esperado: de cientos de consultas por petición a una o dos, y una ca�
 - N+1 se resuelve con `JOIN` o consultas por lotes; añade índices y verifica con `EXPLAIN`.
 - Menos asignaciones = menos trabajo para el GC: preasigna, reutiliza, haz streaming.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Por qué usar percentiles y no solo el promedio?
 2. ¿Qué es la estampida de caché y cómo ayuda `singleflight`?

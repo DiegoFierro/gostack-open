@@ -5,11 +5,7 @@ weight: 9
 fase: "Fase 2: Bases de datos, estado y concurrencia"
 ---
 
-> PostgreSQL con migraciones versionadas y consultas con tipos generados.
-
-**Fase 2: Bases de datos, estado y concurrencia** · Lección 9 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Levantar PostgreSQL localmente y conectarte con `pgx` y un pool de conexiones.
 - Versionar el esquema con `golang-migrate`.
@@ -331,7 +327,7 @@ svc := tarea.NuevoServicio(repo)    // el dominio no se entera
 
 Ésa es la recompensa del Patrón Repository.
 
-## 🧪 Práctica
+## Práctica
 
 Crea la migración de la tabla `tareas`, escribe tres consultas en SQL (crear, listar, borrar), genera el código con `sqlc generate` y reemplaza el repositorio en memoria por uno real.
 
@@ -356,7 +352,7 @@ SELECT * FROM tareas;
 Reinicia la app: **las tareas siguen ahí** (con el repositorio en memoria desaparecían).
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Concatenar variables dentro de SQL (inyección SQL).
 - Abrir un pool por petición o no cerrarlo.
@@ -364,14 +360,14 @@ Reinicia la app: **las tareas siguen ahí** (con el repositorio en memoria desap
 - Dejar que `pgtype` / tipos generados se filtren hasta el dominio y los handlers.
 - Olvidar `sqlc generate` tras cambiar el SQL.
 
-## 📌 Resumen
+## Resumen
 
 - `pgx` + `pgxpool` para conectar; un único pool compartido; siempre con `context` y parámetros.
 - `golang-migrate` versiona y aplica cambios de esquema (`up` / `down`).
 - `sqlc` convierte SQL en código Go tipado y valida las consultas al generar.
 - El repositorio PostgreSQL implementa la interfaz del dominio; `main` cambia una línea.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Por qué se usa un pool en lugar de una conexión por petición?
 2. ¿Qué diferencia hay entre `:one`, `:many` y `:exec` en sqlc?

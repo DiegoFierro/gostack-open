@@ -5,11 +5,7 @@ weight: 4
 fase: "Fase -1 & 0: Fundamentos, terminal y mentalidad Go"
 ---
 
-> Sintaxis esencial, slices, mapas y punteros con una idea clara de cómo se usa la memoria.
-
-**Fase -1 & 0: Fundamentos, terminal y mentalidad Go** · Lección 4 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Escribir programas con control de flujo y funciones con retornos múltiples.
 - Explicar la diferencia entre array y slice (backing array, `len`, `cap`).
@@ -223,7 +219,7 @@ Aspectos prácticos:
 
 **¿Cuándo usar puntero?** (1) Cuando la función debe mutar el valor. (2) Cuando la struct es grande y copiarla costaría. (3) Para representar "ausencia" (`*string` puede ser `nil`). En caso de duda, empieza por valores: son más simples y seguros.
 
-## 🧪 Práctica
+## Práctica
 
 Implementa un contador de palabras que lea un texto, use un `map[string]int` y devuelva las 5 palabras más frecuentes. Después, escribe una función que modifique un slice y otra que reciba un puntero, y explica la diferencia.
 
@@ -293,7 +289,7 @@ func main() {
 Explicación: `duplicar` cambia elementos que ambos slices comparten; pero un `append` dentro de una función que recibe el slice por valor no se vería fuera, por eso `agregar` recibe `*[]int`.
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Olvidar reasignar el resultado de `append` (`s = append(s, x)`).
 - Escribir en un mapa `nil`.
@@ -301,7 +297,7 @@ Explicación: `duplicar` cambia elementos que ambos slices comparten; pero un `a
 - Modificar una copia pensando que cambias el original (paso por valor).
 - Guardar un sub-slice que retiene en memoria un array enorme.
 
-## 📌 Resumen
+## Resumen
 
 - `:=` declara; el valor cero evita variables sin inicializar.
 - `for` es el único bucle; `switch` no necesita `break`; `defer` limpia recursos.
@@ -309,7 +305,7 @@ Explicación: `duplicar` cambia elementos que ambos slices comparten; pero un `a
 - Los mapas requieren inicialización y el patrón *comma ok*.
 - Todo se pasa por valor; un puntero permite mutar y evitar copias.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Qué imprime `len` y `cap` de `make([]int, 2, 5)`?
 2. ¿Por qué `append(s, x)` sin asignar el resultado es un error?

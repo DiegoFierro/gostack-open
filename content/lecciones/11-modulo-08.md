@@ -5,11 +5,7 @@ weight: 11
 fase: "Fase 2: Bases de datos, estado y concurrencia"
 ---
 
-> Goroutines, channels y context: concurrencia segura y legible.
-
-**Fase 2: Bases de datos, estado y concurrencia** · Lección 11 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Explicar la diferencia entre concurrencia y paralelismo y el modelo CSP.
 - Lanzar goroutines y coordinarlas con channels y `select`.
@@ -338,7 +334,7 @@ if err := g.Wait(); err != nil { // primer error; cancela ctx para el resto
 - Trabajo que sobrevive a la petición (enviar correos, generar informes) **no debe usar `r.Context()`** (se cancela al terminar la petición) ni lanzarse sin control: en el Módulo 11 lo delegamos a una cola de tareas.
 - Cierre ordenado: al recibir la señal de apagado, cancelas un contexto raíz y esperas (`WaitGroup`) a que tus goroutines terminen.
 
-## 🧪 Práctica
+## Práctica
 
 Escribe un worker pool que procese 100 URLs con 5 goroutines, soporte cancelación con `context.WithTimeout` y pase `go test -race` sin advertencias.
 
@@ -377,7 +373,7 @@ go test -race -count=1 ./...
 Prueba también con `WithTimeout(…, 50*time.Millisecond)`: debe terminar antes y devolver menos resultados, **sin dejar goroutines colgadas** (ningún *deadlock*, ningún aviso del detector de carreras).
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Lanzar goroutines sin plan para que terminen (fugas).
 - Cerrar un canal desde el receptor o cerrarlo dos veces.
@@ -386,14 +382,14 @@ Prueba también con `WithTimeout(…, 50*time.Millisecond)`: debe terminar antes
 - Olvidar `defer cancel()` tras `WithTimeout`.
 - Usar `time.Sleep` como mecanismo de sincronización.
 
-## 📌 Resumen
+## Resumen
 
 - Concurrencia: tareas independientes; Go la ofrece con goroutines baratas.
 - Los canales comunican y sincronizan; `select` espera a varios; el emisor cierra.
 - Los accesos compartidos exigen mutex, atómicos o un único dueño; `go test -race` encuentra carreras.
 - `context.Context` propaga cancelaciones y plazos: primer parámetro, siempre se respeta, siempre se cancela.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Qué diferencia hay entre concurrencia y paralelismo?
 2. ¿Qué diferencia hay entre un canal con búfer y uno sin búfer?

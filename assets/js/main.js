@@ -38,5 +38,25 @@
     });
   }
 
-  // Al abrir un <details> del TOC en móvil no hace falta nada más; el resto es HTML puro.
+  // Índice lateral: resalta la sección que se está leyendo
+  var enlaces = document.querySelectorAll(".toc--lateral a[href^='#']");
+  if (enlaces.length && "IntersectionObserver" in window) {
+    var porId = {};
+    enlaces.forEach(function (a) { porId[decodeURIComponent(a.getAttribute("href").slice(1))] = a; });
+    var visibles = {};
+    var marcar = function () {
+      var primero = null;
+      document.querySelectorAll(".prosa h2[id]").forEach(function (h) {
+        if (!primero && visibles[h.id]) primero = h.id;
+      });
+      if (!primero) return;
+      enlaces.forEach(function (a) { a.classList.remove("activo"); });
+      if (porId[primero]) porId[primero].classList.add("activo");
+    };
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { visibles[e.target.id] = e.isIntersecting; });
+      marcar();
+    }, { rootMargin: "-80px 0px -60% 0px" });
+    document.querySelectorAll(".prosa h2[id]").forEach(function (h) { obs.observe(h); });
+  }
 })();

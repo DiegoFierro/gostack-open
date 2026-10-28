@@ -5,11 +5,7 @@ weight: 3
 fase: "Fase -1 & 0: Fundamentos, terminal y mentalidad Go"
 ---
 
-> Deja listo tu entorno y adopta la forma de pensar de Go: explícita y simple.
-
-**Fase -1 & 0: Fundamentos, terminal y mentalidad Go** · Lección 3 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Instalar y verificar el toolchain oficial de Go.
 - Crear un módulo y gestionar dependencias.
@@ -164,7 +160,7 @@ Go se diseñó para equipos grandes y bases de código longevas. Sus decisiones 
 
 Si vienes de otros lenguajes, notarás que Go pide *escribir más líneas*, pero cada una dice exactamente lo que hace. Ese es el trato.
 
-## 🧪 Práctica
+## Práctica
 
 Crea un módulo con `go mod init`, escribe un `main.go` con un "Hola, GoStack", formatéalo con `gofmt`, ejecútalo con `go run` y pásale `golangci-lint run`. Después instala una dependencia (`github.com/google/uuid`) y usa `uuid.NewString()`.
 
@@ -197,21 +193,21 @@ go run .
 Comprueba que `go.mod` lista `github.com/google/uuid` y que existe `go.sum`.
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - `go: cannot find main module`: te falta `go mod init` o estás fuera de la carpeta del proyecto.
 - Importar una dependencia sin ejecutar `go mod tidy`.
 - Versionar el binario compilado en Git (añádelo a `.gitignore`).
 - Ignorar las advertencias del linter "para después".
 
-## 📌 Resumen
+## Resumen
 
 - `go` es un único comando que compila, ejecuta, prueba y gestiona módulos.
 - `go.mod` declara dependencias; `go.sum` las verifica.
 - `gofmt`, `go vet` y `golangci-lint` mantienen el código consistente.
 - Go prefiere lo explícito y simple por encima de lo "mágico".
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Qué diferencia hay entre `go run` y `go build`?
 2. ¿Para qué sirve `go.sum` y por qué se versiona?

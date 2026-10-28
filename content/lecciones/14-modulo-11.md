@@ -5,11 +5,7 @@ weight: 14
 fase: "Fase 3: Seguridad, APIs y tiempo real"
 ---
 
-> Notificaciones en vivo y trabajo diferido con colas.
-
-**Fase 3: Seguridad, APIs y tiempo real** · Lección 14 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Servir WebSockets en Go y conectarlos con HTMX.
 - Diseñar un *hub* concurrente que difunda mensajes a muchos clientes.
@@ -352,7 +348,7 @@ ON CONFLICT DO NOTHING;
 -- Si no insertó nada (0 filas), ya estaba enviado: terminar con éxito.
 ```
 
-## 🧪 Práctica
+## Práctica
 
 Crea un panel donde se vean en vivo las tareas nuevas por WebSocket y encola un trabajo de "enviar resumen por email" procesado por un worker de Asynq con tres reintentos.
 
@@ -376,7 +372,7 @@ Crea un panel donde se vean en vivo las tareas nuevas por WebSocket y encola un 
 5. Simula un fallo: haz que `Enviar` devuelva un error las dos primeras veces y observa en el log los **reintentos con backoff**; la tercera vez funciona. Verifica la idempotencia ejecutando la misma tarea dos veces.
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Escribir en una conexión WebSocket desde varias goroutines a la vez.
 - Dejar que un cliente lento bloquee al hub.
@@ -385,14 +381,14 @@ Crea un panel donde se vean en vivo las tareas nuevas por WebSocket y encola un 
 - Tareas no idempotentes que envían tres correos tras tres reintentos.
 - No limitar el tamaño de los mensajes del WebSocket (`SetReadLimit`).
 
-## 📌 Resumen
+## Resumen
 
 - Para empujar datos del servidor: sondeo, SSE o WebSockets; elige el más simple.
 - Un **hub** con una goroutine dueña del estado y canales por cliente difunde con seguridad.
 - La extensión `ws` de HTMX aplica los fragmentos HTML recibidos como OOB swaps.
 - **Asynq + Redis** mueve el trabajo lento fuera de la petición, con reintentos y programación; las tareas deben ser idempotentes.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Cuándo elegirías SSE en lugar de WebSockets?
 2. ¿Por qué es mejor que una goroutine sea dueña del mapa de clientes que usar un mutex?

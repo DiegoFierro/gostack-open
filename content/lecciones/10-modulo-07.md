@@ -5,11 +5,7 @@ weight: 10
 fase: "Fase 2: Bases de datos, estado y concurrencia"
 ---
 
-> Formularios con validación en servidor y actualizaciones de varias zonas a la vez.
-
-**Fase 2: Bases de datos, estado y concurrencia** · Lección 10 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Validar en el servidor y mostrar errores en línea con HTMX.
 - Actualizar múltiples regiones de la pantalla con *Out-of-Band swaps*.
@@ -294,7 +290,7 @@ En el handler, si la petición es HTMX devuelves solo `tabla-tareas`; si no, la 
 
 Regla: lo que el usuario querría **compartir o recargar** va en la URL.
 
-## 🧪 Práctica
+## Práctica
 
 Añade un formulario con validación (título obligatorio, máximo 120 caracteres), devuelve el HTML con errores en línea y actualiza un contador de tareas con `hx-swap-oob`. Agrega búsqueda y paginación a la tabla.
 
@@ -309,7 +305,7 @@ Añade un formulario con validación (título obligatorio, máximo 120 caractere
 6. Pruebas manuales: envía un título vacío (verás el error en línea sin recargar); crea 25 tareas y navega por las 3 páginas; recarga en la página 2 (la URL conserva el estado).
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Confiar solo en la validación del navegador.
 - No configurar `responseHandling` y preguntarse por qué "no pasa nada" al recibir un `422`.
@@ -317,13 +313,13 @@ Añade un formulario con validación (título obligatorio, máximo 120 caractere
 - Aceptar sin lista blanca valores de ordenación o filtro que acaban en SQL.
 - Guardar en la sesión lo que debería estar en la URL.
 
-## 📌 Resumen
+## Resumen
 
 - Valida **siempre** en el servidor; responde `422` con el parcial del formulario y errores en línea.
 - OOB swaps actualizan varias zonas con una sola respuesta.
 - Búsqueda, filtros y paginación del lado del servidor con el estado en la URL; `href` + `hx-get` da mejora progresiva.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Por qué no basta con `required` en el HTML?
 2. ¿Qué problema resuelven los OOB swaps?

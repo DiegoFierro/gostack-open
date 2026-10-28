@@ -3,7 +3,7 @@
 <div class="contenedor leccion-grid">
   <article class="leccion">
     <nav class="migas" aria-label="Ruta de navegación">
-      <a href="{{ "" | relURL }}">Inicio</a> › <a href="{{ "lecciones/" | relURL }}">Lecciones</a> › <span>{{ .Title }}</span>
+      <a href="{{ "" | relURL }}">Inicio</a> › <a href="{{ "lecciones/" | relURL }}">Lecciones</a> › <span aria-current="page">Lección {{ .Weight }}</span>
     </nav>
     <h1>{{ .Title }}</h1>
     <p class="leccion__meta">
@@ -11,16 +11,25 @@
       <span>Lección {{ .Weight }} de {{ len .CurrentSection.RegularPages }}</span>
       <span>{{ .ReadingTime }} min de lectura</span>
     </p>
+    {{- with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
+
+    {{- with .TableOfContents }}
+    <aside class="toc toc--movil" aria-label="En esta lección">
+      <details>
+        <summary>En esta lección</summary>
+        {{ . }}
+      </details>
+    </aside>
+    {{- end }}
+
     <div class="prosa">{{ .Content }}</div>
     {{ partial "lesson-nav.html" . }}
   </article>
 
   {{- with .TableOfContents }}
-  <aside class="toc" aria-label="En esta lección">
-    <details open>
-      <summary>En esta lección</summary>
-      {{ . }}
-    </details>
+  <aside class="toc toc--lateral" aria-label="En esta lección">
+    <p class="toc__titulo">En esta lección</p>
+    {{ . }}
   </aside>
   {{- end }}
 </div>

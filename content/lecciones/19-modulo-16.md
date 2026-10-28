@@ -5,11 +5,7 @@ weight: 19
 fase: "Fase 4: Rendimiento, observabilidad, escritorio y producción"
 ---
 
-> Una sola base de código Go para escritorio y Android.
-
-**Fase 4: Rendimiento, observabilidad, escritorio y producción** · Lección 19 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Construir interfaces gráficas con widgets, contenedores y layouts de Fyne.
 - Reutilizar el dominio de Tareas en una aplicación gráfica nativa.
@@ -342,7 +338,7 @@ fyne-cross android -app-id com.ejemplo.tareas
 
 Lo esencial del curso: **un dominio, muchos adaptadores**.
 
-## 🧪 Práctica
+## Práctica
 
 Implementa una lista de tareas con Fyne, ejecútala en escritorio y empaquétala con `fyne package -os android`.
 
@@ -359,7 +355,7 @@ Implementa una lista de tareas con Fyne, ejecútala en escritorio y empaquétala
 8. Compara con tu app Wails: ¿qué tamaño tiene cada una? ¿Qué te resultó más cómodo?
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Bloquear el hilo de UI con trabajo lento.
 - Modificar widgets desde goroutines sin `fyne.Do`.
@@ -368,7 +364,7 @@ Implementa una lista de tareas con Fyne, ejecútala en escritorio y empaquétala
 - Intentar compilar para Android sin NDK o con `ANDROID_NDK_HOME` mal configurada.
 - Asumir rutas de archivos de escritorio en móviles.
 
-## 📌 Resumen
+## Resumen
 
 - Fyne dibuja la interfaz en Go; mismo código para escritorio y Android.
 - Widgets + contenedores/layouts; `Border` para pantallas de aplicación; `List` para colecciones.
@@ -376,7 +372,7 @@ Implementa una lista de tareas con Fyne, ejecútala en escritorio y empaquétala
 - `fyne package` genera el paquete nativo; `-os android` produce el `.apk` (requiere SDK/NDK); `fyne-cross` automatiza la compilación cruzada.
 - La interfaz es otro adaptador sobre el mismo `tarea.Servicio`.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Qué diferencia fundamental hay entre Fyne y Wails?
 2. ¿Qué hace un contenedor `Border`?

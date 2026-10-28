@@ -5,11 +5,7 @@ weight: 17
 fase: "Fase 4: Rendimiento, observabilidad, escritorio y producción"
 ---
 
-> Pruebas que dan confianza para cambiar el código.
-
-**Fase 4: Rendimiento, observabilidad, escritorio y producción** · Lección 17 de 20
-
-## 🎯 Objetivos
+## Objetivos
 
 - Escribir pruebas unitarias y de integración con el paquete `testing`.
 - Probar handlers HTTP con `httptest` sin levantar un servidor real.
@@ -409,7 +405,7 @@ jobs:
       /____\      muchas: unitarias (rápidas, sin red ni BD)
 ```
 
-## 🧪 Práctica
+## Práctica
 
 Cubre con pruebas de tabla el validador de formularios, prueba un handler con `httptest.NewRecorder`, añade un benchmark y un fuzz test para el parser de entrada.
 
@@ -436,7 +432,7 @@ func ParsearPagina(s string) int {
 7. Añade el workflow de CI y confirma que corre en verde en GitHub.
 </details>
 
-## ⚠️ Errores comunes
+## Errores comunes
 
 - Pruebas que dependen del orden, del reloj o de datos compartidos entre pruebas.
 - `time.Sleep` para esperar goroutines (usa sincronización o canales).
@@ -445,7 +441,7 @@ func ParsearPagina(s string) int {
 - Perseguir el 100 % de cobertura en lugar de probar el comportamiento importante.
 - Olvidar versionar `testdata/fuzz/`.
 
-## 📌 Resumen
+## Resumen
 
 - `testing` + `go test` (con `-race`, `-cover`, `-bench`, `-fuzz`) cubren todo.
 - Pruebas de tabla con subpruebas; *fakes* y *stubs* a mano gracias a las interfaces pequeñas.
@@ -453,7 +449,7 @@ func ParsearPagina(s string) int {
 - Integración con BD real para el SQL; una suite de contrato mantiene fiel al *fake*.
 - Benchmarks miden; fuzzing explora lo inesperado; la CI lo automatiza.
 
-## ✅ Autoevaluación
+## Autoevaluación
 
 1. ¿Qué ventajas tiene una prueba de tabla con subpruebas?
 2. ¿Cuándo usarías `NewRecorder` y cuándo `NewServer`?
