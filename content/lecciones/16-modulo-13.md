@@ -5,7 +5,11 @@ weight: 16
 fase: "Fase 4: Rendimiento, observabilidad, escritorio y producción"
 ---
 
-## Objetivos
+> Saber qué pasa en tu sistema cuando ya no estás mirando.
+
+**Fase 4: Rendimiento, observabilidad, escritorio y producción** · Lección 16 de 20
+
+## 🎯 Objetivos
 
 - Registrar eventos en JSON con `log/slog` y contexto de petición.
 - Exponer métricas para Prometheus y definir las que importan.
@@ -380,7 +384,7 @@ Registra los eventos del ciclo de vida: arranque (versión, configuración **sin
 go build -ldflags "-X main.version=$(git describe --tags --always)" ./cmd/tareas
 ```
 
-## Práctica
+## 🧪 Práctica
 
 Sustituye `log.Println` por `slog` con un ID de petición, expón `/metrics` con contador y histograma de latencia y añade un endpoint `/healthz` (y `/readyz`).
 
@@ -403,7 +407,7 @@ curl -s localhost:8080/readyz -o /dev/null -w '%{http_code}\n' # 200; detén Pos
 7. (Bonus) Levanta Prometheus con el `prometheus.yml` de arriba, consulta `histogram_quantile(0.95, …)`, y añade `otelhttp` con exportador `stdout` para ver un span por petición.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Logs en texto libre imposibles de filtrar.
 - Registrar secretos o datos personales.
@@ -412,7 +416,7 @@ curl -s localhost:8080/readyz -o /dev/null -w '%{http_code}\n' # 200; detén Pos
 - Registrar el mismo error en cada capa (ruido triplicado).
 - Medir solo promedios de latencia.
 
-## Resumen
+## 📌 Resumen
 
 - Logs = qué pasó; métricas = cómo está; trazas = dónde se va el tiempo.
 - `log/slog`: JSON, atributos, niveles y un `request_id` que une todo.
@@ -420,7 +424,7 @@ curl -s localhost:8080/readyz -o /dev/null -w '%{http_code}\n' # 200; detén Pos
 - OpenTelemetry: spans y propagación de contexto; enlaza logs con `trace_id`.
 - `/healthz` y `/readyz` para orquestadores.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Qué ventaja tiene un log estructurado frente a uno de texto?
 2. ¿Para qué sirve el `request_id`?

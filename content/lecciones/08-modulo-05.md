@@ -5,7 +5,11 @@ weight: 8
 fase: "Fase 1: Arquitectura, configuración y web hipermedia"
 ---
 
-## Objetivos
+> Interactividad moderna devolviendo HTML desde el servidor.
+
+**Fase 1: Arquitectura, configuración y web hipermedia** · Lección 8 de 20
+
+## 🎯 Objetivos
 
 - Usar atributos `hx-*` para pedir y reemplazar fragmentos de HTML.
 - Dividir las plantillas en *parciales* reutilizables.
@@ -260,7 +264,7 @@ Respeta a quien prefiere menos movimiento:
 
 Es una mejora progresiva: los navegadores sin soporte simplemente omiten la animación.
 
-## Práctica
+## 🧪 Práctica
 
 Convierte tu lista de tareas en interactiva: añade y elimina tareas sin recargar la página con `hx-post`, `hx-delete` y `hx-target`, y usa `<dialog>` para confirmar el borrado. Añade una View Transition al navegar entre la lista y el detalle.
 
@@ -286,7 +290,7 @@ y al abrirlo desde cada fila copias el título y el `hx-delete` del botón de co
 5. Prueba sin JavaScript (desactívalo en las herramientas del navegador): crear tareas debe seguir funcionando mediante redirección.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Devolver una página completa a una petición HTMX (verás el layout anidado dentro de la lista).
 - Olvidar `hx-target`/`hx-swap` y sorprenderte de dónde aparece la respuesta.
@@ -294,14 +298,14 @@ y al abrirlo desde cada fila copias el título y el `hx-delete` del botón de co
 - Duplicar `id`s en la página.
 - Usar HTMX para todo: si basta un enlace normal, usa un enlace normal.
 
-## Resumen
+## 📌 Resumen
 
 - HTMX amplía el HTML: cualquier elemento, evento y verbo; la respuesta es HTML.
 - En Go, los **parciales** de plantilla permiten devolver solo el fragmento.
 - `HX-Request` distingue peticiones HTMX de navegación normal y permite *mejora progresiva*.
 - `<details>`, `<dialog>` y View Transitions sustituyen mucho JavaScript.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Qué diferencia hay entre `innerHTML` y `outerHTML` en `hx-swap`?
 2. ¿Qué cabecera envía HTMX y para qué la usas en Go?

@@ -5,7 +5,11 @@ weight: 13
 fase: "Fase 3: Seguridad, APIs y tiempo real"
 ---
 
-## Objetivos
+> Diseña el contrato primero y deja que el código se genere a partir de él.
+
+**Fase 3: Seguridad, APIs y tiempo real** · Lección 13 de 20
+
+## 🎯 Objetivos
 
 - Describir una API REST en OpenAPI 3.0 (YAML) siguiendo el enfoque *API-First*.
 - Generar tipos y servidor en Go con `oapi-codegen`.
@@ -410,7 +414,7 @@ Como la CSP del Módulo 09 es estricta, tendrás que relajarla **solo** para `/d
 
 Resultado: `go build` produce **un único binario** que contiene API, interfaz web y documentación interactiva en `/docs/`.
 
-## Práctica
+## 🧪 Práctica
 
 Escribe `openapi.yaml` para `/api/v1/tareas`, genera el servidor, implementa la interfaz generada y sirve Swagger UI en `/docs/` embebido en el binario.
 
@@ -440,7 +444,7 @@ Abre `http://localhost:8080/docs/`, pulsa *Try it out* en `POST /tareas` y verif
 Experimento: elimina `"404"` de `obtenerTarea` en el YAML, regenera y observa cómo el compilador rechaza tu handler que devuelve `ObtenerTarea404JSONResponse`.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Editar `api.gen.go` a mano (se sobrescribe en la siguiente generación).
 - Un contrato "decorativo" que nadie actualiza: si la API cambia, cambia primero el YAML.
@@ -448,14 +452,14 @@ Experimento: elimina `"404"` de `obtenerTarea` en el YAML, regenera y observa c�
 - Exponer en la API los tipos internos de base de datos.
 - Documentación de Swagger sin autenticación en producción cuando la API es privada.
 
-## Resumen
+## 📌 Resumen
 
 - API-First: el contrato OpenAPI (YAML) es la fuente de verdad.
 - `oapi-codegen` genera modelos y una interfaz estricta que el compilador obliga a cumplir.
 - La capa API es un adaptador delgado sobre el mismo dominio que usa el HTML.
 - Swagger UI se incrusta con `go:embed`: documentación interactiva dentro del binario.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Qué significa API-First y qué ventaja aporta al trabajo en equipo?
 2. ¿Qué ocurre si cambias el YAML y regeneras? ¿Quién te avisa de lo que debes ajustar?

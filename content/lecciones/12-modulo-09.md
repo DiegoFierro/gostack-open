@@ -5,7 +5,11 @@ weight: 12
 fase: "Fase 3: Seguridad, APIs y tiempo real"
 ---
 
-## Objetivos
+> Identidad, sesiones y defensas contra los ataques web más comunes.
+
+**Fase 3: Seguridad, APIs y tiempo real** · Lección 12 de 20
+
+## 🎯 Objetivos
 
 - Guardar contraseñas con Argon2id de forma segura.
 - Gestionar sesiones con cookies bien configuradas.
@@ -370,7 +374,7 @@ La entrada del usuario se interpreta como parte de la consulta. **Defensa: consu
 - **No registres** contraseñas, tokens ni datos sensibles.
 - Errores genéricos al usuario; detalles solo en los logs.
 
-## Práctica
+## 🧪 Práctica
 
 Implementa registro e inicio de sesión con Argon2id, sesión por cookie `HttpOnly; Secure; SameSite=Lax`, un middleware de roles (`admin`/`usuario`) y protección CSRF en los formularios.
 
@@ -385,7 +389,7 @@ Implementa registro e inicio de sesión con Argon2id, sesión por cookie `HttpOn
 6. Pruebas: (a) inspecciona la cookie en las herramientas del navegador (flags `HttpOnly`, `Secure`, `SameSite`); (b) intenta `curl -X POST` sin cabecera de origen válida: debe rechazarse; (c) accede a `/admin/usuarios` con un usuario normal: `403`; (d) intenta ver una tarea ajena: `404`.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Guardar contraseñas con SHA-256/MD5 simple, o sin sal.
 - Cookies de sesión sin `HttpOnly`/`Secure`/`SameSite`.
@@ -395,7 +399,7 @@ Implementa registro e inicio de sesión con Argon2id, sesión por cookie `HttpOn
 - Mensajes de error que revelan si un usuario existe.
 - Usar `template.HTML` con entrada del usuario.
 
-## Resumen
+## 📌 Resumen
 
 - Contraseñas con **Argon2id**, sal única y comparación en tiempo constante.
 - Sesiones: token aleatorio, guardado como hash, en cookie `HttpOnly; Secure; SameSite`.
@@ -403,7 +407,7 @@ Implementa registro e inicio de sesión con Argon2id, sesión por cookie `HttpOn
 - RBAC + comprobación de propiedad; deny by default.
 - CSRF, XSS y SQLi se mitigan en capas: SameSite/tokens/origen, escape automático + CSP, consultas parametrizadas.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Por qué se guarda un hash lento con sal en lugar de cifrar la contraseña?
 2. ¿Qué previene cada atributo de la cookie: `HttpOnly`, `Secure` y `SameSite`?

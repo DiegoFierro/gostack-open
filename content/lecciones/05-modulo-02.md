@@ -5,7 +5,11 @@ weight: 5
 fase: "Fase -1 & 0: Fundamentos, terminal y mentalidad Go"
 ---
 
-## Objetivos
+> Diseña sin herencia: structs, interfaces implícitas y errores como valores.
+
+**Fase -1 & 0: Fundamentos, terminal y mentalidad Go** · Lección 5 de 20
+
+## 🎯 Objetivos
 
 - Modelar con structs y métodos en lugar de jerarquías de clases.
 - Definir interfaces pequeñas y satisfacerlas implícitamente.
@@ -233,7 +237,7 @@ Nunca compares con `==` errores que pueden venir envueltos; usa `errors.Is`. Si 
 3. No uses `panic` para el flujo normal. `panic` es para errores de programación irrecuperables; en un servidor, un middleware de recuperación lo captura (Módulo 04).
 4. Define errores de dominio (`ErrNoEncontrada`) en el paquete del dominio y traduce a HTTP en el borde: `ErrNoEncontrada → 404`.
 
-## Práctica
+## 🧪 Práctica
 
 Define una interfaz `Notificador` con dos implementaciones (email y consola). Crea un error centinela `ErrNoEncontrado`, envuélvelo con `%w` y compruébalo con `errors.Is` en el llamador. Añade un error tipado `ErrValidacion` y recupéralo con `errors.As`.
 
@@ -294,7 +298,7 @@ func main() {
 ```
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Mezclar receptores de valor y puntero en el mismo tipo.
 - Comparar errores con `==` después de envolverlos.
@@ -302,13 +306,13 @@ func main() {
 - Declarar interfaces enormes "por si acaso".
 - Devolver un puntero nil tipado como `error`.
 
-## Resumen
+## 📌 Resumen
 
 - Tipos + métodos reemplazan a las clases; la composición reemplaza a la herencia.
 - Las interfaces se satisfacen implícitamente y conviene que sean pequeñas y definidas por el consumidor.
 - Los errores son valores: se devuelven, se envuelven con `%w` y se inspeccionan con `errors.Is` / `errors.As`.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Qué diferencia hay entre promover métodos por *embedding* y heredar?
 2. ¿Por qué se dice que las interfaces de Go son implícitas?

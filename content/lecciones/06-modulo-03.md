@@ -5,7 +5,11 @@ weight: 6
 fase: "Fase 1: Arquitectura, configuración y web hipermedia"
 ---
 
-## Objetivos
+> Estructura tu proyecto y su configuración para que crezca sin dolor.
+
+**Fase 1: Arquitectura, configuración y web hipermedia** · Lección 6 de 20
+
+## 🎯 Objetivos
 
 - Cargar y validar configuración desde variables de entorno al arrancar.
 - Organizar paquetes con criterio de Clean Architecture pragmática.
@@ -311,7 +315,7 @@ El patrón `main() → run() error` permite que los `defer` se ejecuten antes de
 
 La inyección de dependencias en Go es **manual y explícita**: pasas las dependencias por constructores. No necesitas un framework de DI.
 
-## Práctica
+## 🧪 Práctica
 
 Crea una struct `Config` con puerto, URL de base de datos y modo, cárgala con `cleanenv` y haz que la app falle al arrancar si falta un valor obligatorio. Define una interfaz `Repositorio` con una implementación en memoria y pruébala desde `main`.
 
@@ -345,7 +349,7 @@ func TestServicioCrearVacio(t *testing.T) {
 ```
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Leer variables de entorno dispersas por todo el código.
 - Dominio que importa `net/http` o `database/sql`: rompe el desacoplamiento.
@@ -353,14 +357,14 @@ func TestServicioCrearVacio(t *testing.T) {
 - Interfaces demasiado anchas (un "repositorio" con 40 métodos).
 - Sobre-ingeniería: crear capas que no aportan nada aún.
 
-## Resumen
+## 📌 Resumen
 
 - Configuración tipada, validada **al arrancar**, tomada del entorno.
 - `cmd/` + `internal/`; el dominio no depende de nadie.
 - El Patrón Repository esconde la persistencia tras una interfaz definida por el dominio.
 - `main` ensambla todo; las dependencias se pasan explícitamente.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Por qué *fail fast* es preferible a descubrir una variable ausente en producción?
 2. ¿Qué impide el directorio `internal/`?

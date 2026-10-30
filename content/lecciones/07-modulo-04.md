@@ -5,7 +5,11 @@ weight: 7
 fase: "Fase 1: Arquitectura, configuración y web hipermedia"
 ---
 
-## Objetivos
+> Un servidor completo con la librería estándar, middlewares y plantillas HTML.
+
+**Fase 1: Arquitectura, configuración y web hipermedia** · Lección 7 de 20
+
+## 🎯 Objetivos
 
 - Registrar rutas con métodos y comodines en `net/http`.
 - Escribir middlewares como `http.Handler`.
@@ -360,7 +364,7 @@ defer cancel()
 return srv.Shutdown(shutdownCtx) // termina las peticiones en curso y cierra
 ```
 
-## Práctica
+## 🧪 Práctica
 
 Construye una app con rutas `GET /tareas`, `POST /tareas` y `GET /tareas/{id}`, un middleware de registro y una plantilla base con layout. Conecta el `tarea.Servicio` del Módulo 03.
 
@@ -399,7 +403,7 @@ func (s *Servidor) detalle(w http.ResponseWriter, r *http.Request) {
 Prueba con `curl -i -X POST -d "titulo=Estudiar" localhost:8080/tareas` y verás un `303`; con `curl -i localhost:8080/tareas/999` verás un `404`.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Llamar a `WriteHeader` **después** de escribir el cuerpo (no tiene efecto).
 - Olvidar `return` tras `http.Error`: el código continúa y escribe dos respuestas.
@@ -407,14 +411,14 @@ Prueba con `curl -i -X POST -d "titulo=Estudiar" localhost:8080/tareas` y verás
 - Usar `text/template` para HTML (sin escape automático).
 - Parsear las plantillas en cada petición: hazlo una vez al arrancar.
 
-## Resumen
+## 📌 Resumen
 
 - `net/http` + `ServeMux` de Go 1.22 resuelven métodos, comodines y rutas.
 - Middleware = `func(http.Handler) http.Handler`.
 - `html/template` renderiza en el servidor con escape automático; `go:embed` empaqueta las plantillas.
 - Configura timeouts y apaga el servidor con `Shutdown`.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Qué devuelve el servidor si pides `POST /tareas/1` y solo existe `GET /tareas/{id}`?
 2. ¿Por qué se usa el estado `303` tras un `POST`?

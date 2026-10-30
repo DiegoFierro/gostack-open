@@ -5,7 +5,11 @@ weight: 20
 fase: "Fase 4: Rendimiento, observabilidad, escritorio y producción"
 ---
 
-## Objetivos
+> De tu máquina a un servidor real con HTTPS automático.
+
+**Fase 4: Rendimiento, observabilidad, escritorio y producción** · Lección 20 de 20
+
+## 🎯 Objetivos
 
 - Compilar binarios estáticos ultraligeros sin dependencias.
 - Crear imágenes Docker multi-stage y orquestarlas con Docker Compose.
@@ -406,7 +410,7 @@ ProtectHome=true
 WantedBy=multi-user.target
 ```
 
-## Práctica
+## 🧪 Práctica
 
 Escribe un `Dockerfile` multi-stage, un `compose.yaml` con la app, PostgreSQL y Redis, y un `Caddyfile` que sirva tu dominio con HTTPS.
 
@@ -432,7 +436,7 @@ docker compose down && docker compose up -d      # los datos persisten
 8. (Bonus) Añade el workflow de GitHub Actions y haz un despliegue con una etiqueta `v1.0.0`.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Imagen final basada en el SDK de Go (cientos de MB y superficie de ataque enorme).
 - Contenedores corriendo como root.
@@ -443,7 +447,7 @@ docker compose down && docker compose up -d      # los datos persisten
 - Usar solo la etiqueta `latest`: imposible volver atrás con seguridad.
 - No configurar rotación de logs y llenar el disco.
 
-## Resumen
+## 📌 Resumen
 
 - `CGO_ENABLED=0` + `go:embed` = **un binario estático** autosuficiente.
 - Dockerfile **multi-stage** con `distroless` y usuario no-root: imágenes pequeñas y seguras.
@@ -451,7 +455,7 @@ docker compose down && docker compose up -d      # los datos persisten
 - **Caddy** da HTTPS automático, compresión y cabeceras con unas pocas líneas.
 - Producción es seguridad + fiabilidad + datos + observabilidad: copias probadas, healthchecks, logs, métricas y despliegues reproducibles.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Por qué `CGO_ENABLED=0` facilita el despliegue?
 2. ¿Qué ventaja tiene una construcción multi-stage?
@@ -464,7 +468,7 @@ docker compose down && docker compose up -d      # los datos persisten
 - [ ] Mi aplicación corre con `docker compose up -d` y responde por HTTPS.
 - [ ] Sé qué parte me costó más y la repasaré.
 
-## ¡Has completado el curso!
+## 🎓 ¡Has completado el curso!
 
 Recorriste todo el camino: terminal y HTTP, el lenguaje Go, una arquitectura limpia, web hipermedia con HTMX, PostgreSQL con SQL tipado, concurrencia, seguridad, APIs con OpenAPI, tiempo real y colas, rendimiento, observabilidad, pruebas, apps de escritorio y móviles, y un despliegue profesional. Lo importante: **un dominio, muchos adaptadores**, y cada pieza medible, probada y explícita.
 

@@ -5,7 +5,11 @@ weight: 18
 fase: "Fase 4: Rendimiento, observabilidad, escritorio y producción"
 ---
 
-## Objetivos
+> Lleva tu lógica Go a una app de escritorio con interfaz web.
+
+**Fase 4: Rendimiento, observabilidad, escritorio y producción** · Lección 18 de 20
+
+## 🎯 Objetivos
 
 - Explicar cómo Wails une un backend Go con una interfaz web en un ejecutable nativo.
 - Crear un proyecto Wails y enlazar métodos de Go con el frontend.
@@ -340,7 +344,7 @@ Buenas prácticas de distribución:
 - No cargues contenido remoto no confiable dentro de la ventana.
 - Guarda secretos en el almacén del sistema, nunca en el código ni en archivos planos.
 
-## Práctica
+## 🧪 Práctica
 
 Crea una app Wails que reutilice tu paquete de tareas, exponga métodos Go al frontend y genere un ejecutable con `wails build`.
 
@@ -357,7 +361,7 @@ Crea una app Wails que reutilice tu paquete de tareas, exponga métodos Go al fr
 8. (Bonus) Emite un evento `tarea:creada` y escúchalo en el frontend; abre un diálogo nativo de confirmación al borrar.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - Olvidar el contexto de `startup` y usar `a.ctx` antes de que exista (será `nil`).
 - Importar paquetes `internal/` desde otro módulo (el compilador lo prohíbe).
@@ -366,14 +370,14 @@ Crea una app Wails que reutilice tu paquete de tareas, exponga métodos Go al fr
 - Distribuir sin firmar y sorprenderse por las alertas del sistema.
 - Exponer a JS métodos con funciones o canales en su firma.
 
-## Resumen
+## 📌 Resumen
 
 - Wails = backend Go + WebView del sistema en un ejecutable pequeño.
 - Los métodos públicos de las structs enlazadas se llaman desde JS con tipos autogenerados; los eventos comunican en ambos sentidos.
 - El mismo dominio sirve a web, API y escritorio: la arquitectura del Módulo 03 da sus frutos.
 - `wails build` genera `.exe` y `.app`; para `.deb` se usa `nfpm`; firma y CI por plataforma completan la distribución.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Por qué un ejecutable Wails es mucho más pequeño que uno de Electron?
 2. ¿Qué convierte un método Go en una función invocable desde JS?

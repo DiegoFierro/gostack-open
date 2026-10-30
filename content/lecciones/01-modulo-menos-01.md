@@ -5,7 +5,11 @@ weight: 1
 fase: "Fase -1 & 0: Fundamentos, terminal y mentalidad Go"
 ---
 
-## Objetivos
+> Pierde el miedo a la terminal: navegar, editar archivos y versionar con Git y GitHub.
+
+**Fase -1 & 0: Fundamentos, terminal y mentalidad Go** · Lección 1 de 20
+
+## 🎯 Objetivos
 
 - Explicar qué es una interfaz de comandos y cómo habla con el sistema operativo.
 - Moverte por el sistema de archivos y gestionar archivos sin usar el ratón.
@@ -180,7 +184,7 @@ bin/
 
 > **Regla de oro:** nunca hagas commit de contraseñas, tokens ni archivos `.env`. Si lo haces por error, considéralos comprometidos y cámbialos.
 
-## Práctica
+## 🧪 Práctica
 
 Crea un directorio `mi-curso`, dentro un archivo `notas.md`, inicializa un repositorio con `git init`, haz tu primer commit y súbelo a un repositorio nuevo en GitHub.
 
@@ -202,21 +206,21 @@ git push -u origin main
 Comprueba en GitHub que ves `notas.md` y `.gitignore`.
 </details>
 
-## Errores comunes
+## ⚠️ Errores comunes
 
 - **`command not found`**: el programa no está instalado o no está en `PATH`.
 - **`Permission denied`** al ejecutar un script: falta `chmod +x`.
 - **`fatal: not a git repository`**: no estás dentro de una carpeta con `git init`.
 - **Rechazo en `git push`**: el remoto tiene commits que no tienes; haz `git pull` primero.
 
-## Resumen
+## 📌 Resumen
 
 - La terminal es la ventana, el shell interpreta y los comandos son programas.
 - `pwd`, `ls`, `cd`, `mkdir`, `cp`, `mv`, `rm` te permiten gestionar archivos.
 - Las variables de entorno son la vía estándar para configurar programas.
 - Git guarda historial local; GitHub lo comparte.
 
-## Autoevaluación
+## ✅ Autoevaluación
 
 1. ¿Cuál es la diferencia entre terminal y shell?
 2. ¿Qué hace `chmod 640 archivo` exactamente?
